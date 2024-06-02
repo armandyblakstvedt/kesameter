@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: 'Følg med hvor mange kesamer som blir konsumert',
 };
 
-export const revalidate = 7200; // revalidate at most every other hour
+export const revalidate = 10800; // revalidate at most every third hour
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
