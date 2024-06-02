@@ -8,5 +8,5 @@ export const getKesamCount = async () => {
   if (error) {
     throw error;
   }
-  return { ...data[data.length - 1], count };
+  return { ...data[0], count };
 };
