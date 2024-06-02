@@ -11,6 +11,7 @@ export default function Timer(props: ComponentProps) {
   const { datetime } = props;
   const date = new Date(datetime).getTime() - new Date(datetime).getTimezoneOffset() * 60 * 1000;
 
+  // keep track of time since last kesam
   const [diff, setDiff] = useState(new Date().getTime() - date);
 
   useEffect(() => {
