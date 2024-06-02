@@ -16,9 +16,9 @@ export default async function Statistics() {
   // date from timestamp in postgres to seconds after 1970
   const date = new Date(datetime).getTime();
   const diff = dateNow.getTime() - date - /** utc to localtime */ 7200000;
-  const hours = Math.floor(diff / (1000 * 60 * 60 * 24));
-  const minutes = Math.floor((diff / (1000 * 60 * 60)) % 60);
-  const seconds = Math.floor(diff / 1000) % 60;
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff / 1000 / 60) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
 
   return (
     <div className=' flex flex-row w-full items-center justify-center mb-12'>
