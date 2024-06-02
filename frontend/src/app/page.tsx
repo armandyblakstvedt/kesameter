@@ -5,7 +5,7 @@ import Statistics from '@/app/components/Statistics';
 
 export default function Home() {
   return (
-    <main className='flex flex-col bg-main min-h-screen w-screen p-2'>
+    <main className='flex flex-col bg-main text-white min-h-screen w-screen p-2'>
       <Header />
       <Content />
       <Statistics />

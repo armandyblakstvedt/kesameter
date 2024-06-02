@@ -13,9 +13,9 @@ export default async function Statistics() {
   const averagePerDay = count
     ? (count / ((new Date().getTime() - startDate.getTime()) / 1000 / 60 / 60 / 24)).toFixed(1)
     : 0;
-  // date from timestamp in postgres to seconds after 1970
-  const date = new Date(datetime).getTime();
-  const diff = dateNow.getTime() - date - /** utc to localtime */ 7200000;
+  // convert date to greenwich time and calculate difference with respect to negative or positive timezone
+  const date = new Date(datetime).getTime() - new Date(datetime).getTimezoneOffset() * 60 * 1000;
+  const diff = dateNow.getTime() - date;
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff / 1000 / 60) % 60);
   const seconds = Math.floor((diff / 1000) % 60);
